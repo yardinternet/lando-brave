@@ -1,0 +1,44 @@
+{
+  "name": "@yard/lando-brave",
+  "version": "0.0.1",
+  "description": "Brave template for Lando",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "compile": "tsc",
+    "package": "npm run clean && npm run compile && cp package.json dist && cp package-lock.json dist && cd dist && npm install --omit=dev --immutable --immutable-cache --check-cache",
+    "install:home": "npm run compile && rm -rf ~/.lando/plugins/lando_brave && mkdir -p ~/.lando/plugins && cp -r dist ~/.lando/plugins/lando_brave",
+    "uninstall:home": "rm -rf ~/.lando/plugins/lando_brave",
+    "lint": "eslint --quiet . --ext .ts"
+  },
+  "keywords": [
+    "lando",
+    "lando-plugin",
+    "php"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "github-version-checker": "^2.3.0",
+    "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/eslint-parser": "^7.16.0",
+    "@types/chai": "^4.3.0",
+    "@types/js-yaml": "^4.0.5",
+    "@types/lodash": "^4.14.186",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^18.8.1",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "chai": "^4.3.4",
+    "command-line-test": "^1.0.10",
+    "eslint": "^8.12.0",
+    "eslint-config-google": "^0.14.0",
+    "lefthook": "^1.1.1",
+    "mocha": "^10.0.0",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^4.6.2"
+  }
+}

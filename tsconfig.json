@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es2019",
+        "jsx": "preserve",
+        "strictFunctionTypes": true,
+        "sourceMap": false,
+        "outDir": "dist",
+        "resolveJsonModule": true,
+        "typeRoots": [
+            "src/types",
+            "node_modules/@types"
+        ]
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/node_modules/*"
+    ]
+}

@@ -1,0 +1,69 @@
+name: brave
+recipe: wordpress
+
+config:
+  php: '8.1'
+  xdebug: true
+  via: nginx
+  webroot: web
+  config:
+    vhosts: provision/nginx/multisite-subdomain-subdirectory.conf
+
+services:
+  appserver:
+    xdebug: 'debug'
+    composer_version: 2
+    overrides:
+      volumes:
+        - ~/.composer/auth.json:/var/www/.composer/auth.json
+      environment:
+        # For PHPStorm, which supports automatic configuration switching
+        # for multiple remote servers.
+        PHP_IDE_CONFIG: "serverName=appserver"
+    config:
+      php: provision/php/php.ini
+  database:
+    type: mysql:8.0.39
+    config:
+      database: provision/mysql/mysql.cnf
+  pma:
+    type: phpmyadmin
+    ssl: true
+    hosts:
+      - database
+    scanner:
+      timeout: 1000
+      retry: 5
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+  node:
+    type: node:18
+    build:
+     - npm install && npm run dev-all-once
+    overrides:
+      volumes:
+        - ~/.npmrc:/home/node/.npmrc
+
+events:
+  post-start:
+    # Some build steps require a running database, so we run these after Lando has started.
+    appserver: composer install && wp acorn package:discover
+
+tooling:
+  deploy:
+    service: appserver
+    cmd: ./vendor/bin/dep deploy
+  npm:
+    service: node
+  xdebug-on:
+    service: appserver
+    description: Enable xdebug for nginx.
+    cmd: docker-php-ext-enable xdebug && pkill -o -USR2 php-fpm && echo "Enabling xdebug"
+    user: root
+  xdebug-off:
+    service: appserver
+    description: CUSTOM Disable xdebug for nginx.
+    cmd: rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && pkill -o -USR2 php-fpm && echo "Disabling xdebug"
+    user: root

@@ -12,11 +12,10 @@ Add `'/vendor/yard/lando-brave/.lando.brave.yml'` to `preLandoFiles` in your glo
 
 ## Project configuration
 
-Add a minimal `.lando.yml` to your project:
+Add a minimal `.lando.yml` to the root of your project:
 
 ```yaml
 name: project
-recipe: wordpress
 
 proxy:
   appserver_nginx:
@@ -26,4 +25,10 @@ proxy:
     - mail.project.lndo.site
   pma:
     - pma.project.lndo.site
+```
+
+Create a `.lndo.base.yml` file in the root of your project:
+
+```yaml
+# This file is needed because Lando determines the app root based on the first loaded config file.
 ```

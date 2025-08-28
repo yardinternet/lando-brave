@@ -34,9 +34,9 @@ services:
     scanner:
       timeout: 1000
       retry: 5
-  mailhog:
-    type: mailhog
-    hogfrom:
+  mailpit:
+    type: mailpit:1.27
+    mailfrom:
       - appserver
   node:
     type: node:18

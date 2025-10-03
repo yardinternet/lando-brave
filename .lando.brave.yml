@@ -39,7 +39,7 @@ services:
     mailfrom:
       - appserver
   node:
-    type: node:18
+    type: node:22
     build:
      - npm install && npm run dev-all-once
     overrides:

@@ -2,7 +2,7 @@ name: brave
 recipe: wordpress
 
 config:
-  php: '8.1'
+  php: '8.2'
   xdebug: true
   via: nginx
   webroot: web

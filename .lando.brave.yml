@@ -41,7 +41,7 @@ services:
   node:
     type: node:22
     build:
-     - npm install && npm run dev-all-once
+     - pnpm install && pnpm run build
     overrides:
       volumes:
         - ~/.npmrc:/home/node/.npmrc

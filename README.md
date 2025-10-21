@@ -21,7 +21,7 @@ proxy:
   appserver_nginx:
     - project.lndo.site
     - subsite.project.lndo.site
-  mailhog:
+  mailpit:
     - mail.project.lndo.site
   pma:
     - pma.project.lndo.site

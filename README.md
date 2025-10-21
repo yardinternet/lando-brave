@@ -32,3 +32,5 @@ Create a `.lndo.base.yml` file in the root of your project:
 ```yaml
 # This file is needed because Lando determines the app root based on the first loaded config file.
 ```
+
+If you have a `provision` directory in your project's root, it is no longer necessary and can be removed.

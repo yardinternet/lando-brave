@@ -7,7 +7,7 @@ config:
   via: nginx
   webroot: web
   config:
-    vhosts: provision/nginx/multisite-subdomain-subdirectory.conf
+    vhosts: ./vendor/yard/lando-brave/provision/nginx/multisite-subdomain-subdirectory.conf
 
 services:
   appserver:
@@ -21,11 +21,11 @@ services:
         # for multiple remote servers.
         PHP_IDE_CONFIG: "serverName=appserver"
     config:
-      php: provision/php/php.ini
+      php: ./vendor/yard/lando-brave/provision/php/php.ini
   database:
     type: mysql:8.0.39
     config:
-      database: provision/mysql/mysql.cnf
+      database: ./vendor/yard/lando-brave/provision/mysql/mysql.cnf
   pma:
     type: phpmyadmin
     ssl: true
@@ -41,7 +41,7 @@ services:
   node:
     type: node:22
     build:
-     - npm install && npm run dev-all-once
+      - npm install && npm run dev-all-once
     overrides:
       volumes:
         - ~/.npmrc:/home/node/.npmrc

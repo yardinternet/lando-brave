@@ -8,7 +8,14 @@ composer require yard/lando-brave --dev
 
 ## Global configuration
 
-Add `'/vendor/yard/lando-brave/.lando.brave.yml'` to `preLandoFiles` in your global lando config
+Add `'/vendor/yard/lando-brave/.lando.brave.yml'` to `preLandoFiles` in your global lando config.
+
+You can find the global lando config in `~/.lando/config.yml`:
+
+```yml
+preLandoFiles:
+  - /vendor/yard/lando-brave/.lando.brave.yml
+```
 
 ## Project configuration
 

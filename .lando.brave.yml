@@ -22,6 +22,10 @@ services:
         PHP_IDE_CONFIG: "serverName=appserver"
     config:
       php: ./vendor/yard/lando-brave/provision/php/php.ini
+  appserver_nginx:
+    scanner:
+      timeout: 1000
+      retry: 5
   database:
     type: mysql:8.0.39
     config:

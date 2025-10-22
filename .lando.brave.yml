@@ -38,6 +38,9 @@ services:
     type: mailpit:1.27
     mailfrom:
       - appserver
+    scanner:
+      timeout: 1000
+      retry: 5
   node:
     type: node:22
     build:

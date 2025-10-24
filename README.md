@@ -42,6 +42,15 @@ Create a `.lando.base.yml` file in the root of your project with the following c
 
 If you have a `provision` directory in your project's root, it is no longer necessary and can be removed.
 
+### Remote assets
+
+To load missing assets from a remote server you can create an lando.env file and set the `LANDO_REMOTE_ASSETS_URL` variable:
+
+```ini
+LANDO_REMOTE_ASSETS_URL="https://brave.wpacc01.yard.nl"
+```
+
+
 ## About us
 
 [![banner](https://raw.githubusercontent.com/yardinternet/.github/refs/heads/main/profile/assets/small-banner-github.svg)](https://www.yard.nl/werken-bij/)

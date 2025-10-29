@@ -48,7 +48,9 @@ services:
   node:
     type: node:22
     build:
-      - npm install && npm run dev-all-once
+      - npm install --global pnpm
+      - yes | SHELL=bash pnpm setup
+      - pnpm install && pnpm build
     overrides:
       volumes:
         - ~/.npmrc:/home/node/.npmrc

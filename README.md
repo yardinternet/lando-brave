@@ -34,7 +34,7 @@ proxy:
     - pma.project.lndo.site
 ```
 
-Create a `.lndo.base.yml` file in the root of your project with the following content:
+Create a `.lando.base.yml` file in the root of your project with the following content:
 
 ```yaml
 # This file is needed because Lando determines the app root based on the first loaded config file.

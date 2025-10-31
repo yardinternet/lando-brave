@@ -23,6 +23,7 @@ services:
     overrides:
       volumes:
         - ~/.composer/auth.json:/var/www/.composer/auth.json
+        - ~/.ssh/config:/var/www/.ssh/config
       environment:
         # For PHPStorm, which supports automatic configuration switching
         # for multiple remote servers.

@@ -13,6 +13,13 @@ services:
   appserver:
     xdebug: 'debug'
     composer_version: 2
+    build_as_root:
+      - apt-get update -y
+      # Note that you will want to use the script for the major version of node you want to install
+      # See: https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions
+      - curl -sL https://deb.nodesource.com/setup_22.x | bash -
+      - apt-get install -y nodejs
+      - npm install --global pnpm
     overrides:
       volumes:
         - ~/.composer/auth.json:/var/www/.composer/auth.json

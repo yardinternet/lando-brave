@@ -74,6 +74,8 @@ tooling:
     cmd: ./vendor/bin/dep deploy
   npm:
     service: node
+  pnpm:
+    service: node
   xdebug-on:
     service: appserver
     description: Enable xdebug for nginx.

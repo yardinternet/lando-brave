@@ -76,6 +76,9 @@ tooling:
     service: node
   pnpm:
     service: node
+  git:
+    service: appserver
+    cmd: /usr/bin/git
   xdebug-on:
     service: appserver
     description: Enable xdebug for nginx.

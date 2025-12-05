@@ -1,4 +1,4 @@
-# Landofile for Brave projects
+# Lando file for Brave projects
 
 ## Installation
 
@@ -41,3 +41,7 @@ Create a `.lando.base.yml` file in the root of your project with the following c
 ```
 
 If you have a `provision` directory in your project's root, it is no longer necessary and can be removed.
+
+## About us
+
+[![banner](https://raw.githubusercontent.com/yardinternet/.github/refs/heads/main/profile/assets/small-banner-github.svg)](https://www.yard.nl/werken-bij/)

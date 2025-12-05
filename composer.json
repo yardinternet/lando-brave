@@ -1,6 +1,7 @@
 {
     "name": "yard/lando-brave",
-    "description": "Baseline landofile for Brave projects",
+    "license": "EUPL-1.2",
+    "description": "Baseline Lando file for Brave projects",
     "type": "package",
     "keywords": [
         "dev"

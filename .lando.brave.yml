@@ -28,6 +28,7 @@ services:
         # For PHPStorm, which supports automatic configuration switching
         # for multiple remote servers.
         PHP_IDE_CONFIG: "serverName=appserver"
+        LANDO_REMOTE_ASSETS_URL: "brave.wpacc01.yard.nl"
     config:
       php: ./vendor/yard/lando-brave/provision/php/php.ini
   appserver_nginx:

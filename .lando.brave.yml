@@ -2,7 +2,7 @@ name: brave
 recipe: wordpress
 
 config:
-  php: '8.2'
+  php: "8.2"
   xdebug: true
   via: nginx
   webroot: web
@@ -11,7 +11,7 @@ config:
 
 services:
   appserver:
-    xdebug: 'debug'
+    xdebug: "debug"
     composer_version: 2
     build_as_root:
       - apt-get update -y
@@ -55,18 +55,21 @@ services:
       retry: 5
   node:
     type: node:22
+    environment:
+      PNPM_STORE_DIR: /home/node/.pnpm-store
     build:
       - npm install --global pnpm
       - yes | SHELL=bash pnpm setup
-      - pnpm install && pnpm build
     overrides:
       volumes:
         - ~/.npmrc:/home/node/.npmrc
+        - pnpm-store:/home/node/.pnpm-store
 
 events:
   post-start:
     # Some build steps require a running database, so we run these after Lando has started.
     appserver: composer install && wp acorn package:discover
+    node: pnpm install && pnpm build
 
 tooling:
   deploy:

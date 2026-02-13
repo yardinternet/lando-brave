@@ -13,13 +13,6 @@ services:
   appserver:
     xdebug: 'debug'
     composer_version: 2
-    build_as_root:
-      - apt-get update -y
-      # Note that you will want to use the script for the major version of node you want to install
-      # See: https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions
-      - curl -sL https://deb.nodesource.com/setup_22.x | bash -
-      - apt-get install -y nodejs
-      - npm install --global pnpm
     overrides:
       volumes:
         - ~/.composer/auth.json:/var/www/.composer/auth.json
@@ -27,7 +20,7 @@ services:
       environment:
         # For PHPStorm, which supports automatic configuration switching
         # for multiple remote servers.
-        PHP_IDE_CONFIG: "serverName=appserver"
+        PHP_IDE_CONFIG: 'serverName=appserver'
     config:
       php: ./vendor/yard/lando-brave/provision/php/php.ini
   appserver_nginx:
@@ -56,9 +49,7 @@ services:
   node:
     type: node:22
     build:
-      - npm install --global pnpm
-      - yes | SHELL=bash pnpm setup
-      - pnpm install && pnpm build
+      - npm install && npm run dev-all-once'
     overrides:
       volumes:
         - ~/.npmrc:/home/node/.npmrc
@@ -73,8 +64,6 @@ tooling:
     service: appserver
     cmd: ./vendor/bin/dep deploy
   npm:
-    service: node
-  pnpm:
     service: node
   git:
     service: appserver

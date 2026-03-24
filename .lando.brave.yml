@@ -48,8 +48,6 @@ services:
       retry: 5
   node:
     type: node:22
-    build:
-      - npm install && npm run dev-all-once
     overrides:
       volumes:
         - ~/.npmrc:/home/node/.npmrc

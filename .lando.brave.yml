@@ -46,11 +46,6 @@ services:
     scanner:
       timeout: 1000
       retry: 5
-  node:
-    type: node:22
-    overrides:
-      volumes:
-        - ~/.npmrc:/home/node/.npmrc
 
 events:
   post-start:
@@ -61,8 +56,6 @@ tooling:
   deploy:
     service: appserver
     cmd: ./vendor/bin/dep deploy
-  npm:
-    service: node
   git:
     service: appserver
     cmd: /usr/bin/git

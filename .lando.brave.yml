@@ -10,7 +10,6 @@ config:
     vhosts: ./vendor/yard/lando-brave/provision/nginx/multisite-subdomain-subdirectory.conf
 
 env_file:
-  - ./vendor/yard/lando-brave/provision/env/lando.env
   - ./lando.env
 
 services:

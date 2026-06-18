@@ -47,9 +47,8 @@ If you have a `provision` directory in your project's root, it is no longer nece
 To load missing assets from a remote server you can create an lando.env file and set the `LANDO_REMOTE_ASSETS_URL` variable:
 
 ```ini
-LANDO_REMOTE_ASSETS_URL="https://brave.wpacc01.yard.nl"
+LANDO_REMOTE_ASSETS_URL="https://example.com"
 ```
-
 
 ## About us
 

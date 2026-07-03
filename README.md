@@ -44,7 +44,7 @@ If you have a `provision` directory in your project's root, it is no longer nece
 
 ### Remote assets
 
-To load missing assets from a remote server you can create a `lando.env` file in your project root (and add it to `.gitignore`) and set the `LANDO_REMOTE_ASSETS_URL` variable (no trailing slash):
+To load missing assets from a remote server you can create a `.lando.env` file in your project root (and add it to `.gitignore`) and set the `LANDO_REMOTE_ASSETS_URL` variable (no trailing slash):
 
 ```ini
 LANDO_REMOTE_ASSETS_URL="https://example.com"

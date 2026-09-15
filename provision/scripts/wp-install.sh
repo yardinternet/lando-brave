@@ -5,9 +5,7 @@ if wp core is-installed --network; then
   exit 0
 fi
 
-set -a
 . /app/.env
-set +a
 
 wp core multisite-install \
   --url="$WP_HOME" \

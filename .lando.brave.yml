@@ -52,8 +52,13 @@ services:
 
 events:
   post-start:
-    # Some build steps require a running database, so we run these after Lando has started.
-    appserver: composer install && wp acorn package:discover
+    appserver: >
+      wp core is-installed --network ||
+      { set -a; . /app/.env; set +a;
+      wp core multisite-install --url="$WP_HOME" --subdomains --title="$DOMAIN_CURRENT_SITE"
+      --admin_user=lando --admin_password=lando --admin_email="admin@$DOMAIN_CURRENT_SITE" --skip-email &&
+      wp theme enable sage --network --activate; }
+      && wp acorn package:discover
 
 tooling:
   deploy:

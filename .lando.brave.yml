@@ -52,8 +52,7 @@ services:
 
 events:
   post-start:
-    # Some build steps require a running database, so we run these after Lando has started.
-    appserver: composer install && wp acorn package:discover
+    appserver: ./vendor/yard/lando-brave/provision/scripts/wp-install.sh && wp acorn package:discover
 
 tooling:
   deploy:

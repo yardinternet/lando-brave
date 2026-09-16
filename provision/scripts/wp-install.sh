@@ -11,7 +11,7 @@ wp core multisite-install \
   --url="$WP_HOME" \
   --subdomains \
   --title="$DOMAIN_CURRENT_SITE" \
-  --admin_user=lando \
+  --admin_user=Minda \
   --admin_password=lando \
   --admin_email="admin@$DOMAIN_CURRENT_SITE" \
   --skip-email
